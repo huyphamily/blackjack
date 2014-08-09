@@ -41,10 +41,14 @@
       var dealer, player;
       dealer = this.get('dealerHand');
       player = this.get('playerHand');
-      if ((dealer.scores(1) || dealer.scores()[0]) > (player.scores()[1] || player.scores()[0])) {
+      if (dealer.scores()[0] > 21) {
+        return console.log('dealer bust you win');
+      } else if ((dealer.scores(1) || dealer.scores()[0]) > (player.scores()[1] || player.scores()[0])) {
         return console.log('dealer wins');
-      } else {
+      } else if ((dealer.scores(1) || dealer.scores()[0]) < (player.scores()[1] || player.scores()[0])) {
         return console.log('player wins');
+      } else {
+        return console.log('draw');
       }
     };
 

@@ -19,6 +19,9 @@ class window.App extends Backbone.Model
   gameEnd: ->
     dealer = @get 'dealerHand'
     player = @get 'playerHand'
-    if (dealer.scores(1) or dealer.scores()[0]) > (player.scores()[1] or player.scores()[0]) then console.log 'dealer wins'
-    else console.log 'player wins'
+
+    if dealer.scores()[0] > 21 then console.log 'dealer bust you win'
+    else if (dealer.scores(1) or dealer.scores()[0]) > (player.scores()[1] or player.scores()[0]) then console.log 'dealer wins'
+    else if (dealer.scores(1) or dealer.scores()[0]) < (player.scores()[1] or player.scores()[0]) then console.log 'player wins'
+    else console.log 'draw'
 
