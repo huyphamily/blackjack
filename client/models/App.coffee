@@ -20,8 +20,13 @@ class window.App extends Backbone.Model
     dealer = @get 'dealerHand'
     player = @get 'playerHand'
 
-    if dealer.scores()[0] > 21 then console.log 'dealer bust you win'
-    else if (dealer.scores(1) or dealer.scores()[0]) > (player.scores()[1] or player.scores()[0]) then console.log 'dealer wins'
-    else if (dealer.scores(1) or dealer.scores()[0]) < (player.scores()[1] or player.scores()[0]) then console.log 'player wins'
-    else console.log 'draw'
+    if player.scores()[1] <= 21 then playerScore = player.scores()[1]
+    else playerScore = player.scores()[0]
 
+    if dealer.scores()[1] <= 21 then dealerScore = dealer.scores()[1]
+    else dealerScore = dealer.scores()[0]
+
+    if dealerScore > 21 then console.log 'dealer bust you win'
+    else if dealerScore > playerScore then console.log 'dealer wins'
+    else if playerScore > dealerScore then console.log 'player wins'
+    else console.log 'draw'

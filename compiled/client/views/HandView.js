@@ -33,7 +33,9 @@
       }));
       return this.$('.score').text((function(_this) {
         return function() {
-          if (_this.collection.scores()[1] <= 21) {
+          if (_this.collection.scores()[0] > 21) {
+            return 'Busted';
+          } else if (_this.collection.scores()[1] <= 21) {
             return _this.collection.scores()[1];
           } else {
             return _this.collection.scores()[0];

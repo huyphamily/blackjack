@@ -38,14 +38,24 @@
     };
 
     App.prototype.gameEnd = function() {
-      var dealer, player;
+      var dealer, dealerScore, player, playerScore;
       dealer = this.get('dealerHand');
       player = this.get('playerHand');
-      if (dealer.scores()[0] > 21) {
+      if (player.scores()[1] <= 21) {
+        playerScore = player.scores()[1];
+      } else {
+        playerScore = player.scores()[0];
+      }
+      if (dealer.scores()[1] <= 21) {
+        dealerScore = dealer.scores()[1];
+      } else {
+        dealerScore = dealer.scores()[0];
+      }
+      if (dealerScore > 21) {
         return console.log('dealer bust you win');
-      } else if ((dealer.scores(1) || dealer.scores()[0]) > (player.scores()[1] || player.scores()[0])) {
+      } else if (dealerScore > playerScore) {
         return console.log('dealer wins');
-      } else if ((dealer.scores(1) || dealer.scores()[0]) < (player.scores()[1] || player.scores()[0])) {
+      } else if (playerScore > dealerScore) {
         return console.log('player wins');
       } else {
         return console.log('draw');
