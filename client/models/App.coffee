@@ -26,7 +26,7 @@ class window.App extends Backbone.Model
     if dealer.scores()[1] <= 21 then dealerScore = dealer.scores()[1]
     else dealerScore = dealer.scores()[0]
 
-    if dealerScore > 21 then console.log 'dealer bust you win'
-    else if dealerScore > playerScore then console.log 'dealer wins'
-    else if playerScore > dealerScore then console.log 'player wins'
-    else console.log 'draw'
+    if dealerScore > 21 then alert 'dealer bust you win'
+    else if dealerScore > playerScore then alert 'dealer wins'
+    else if playerScore > dealerScore then alert 'player wins'
+    else alert 'draw'

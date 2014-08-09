@@ -6,7 +6,7 @@ class window.Hand extends Backbone.Collection
 
   hit: ->
     @add(@deck.pop()).last()
-    if !@isDealer && this.scores()[0] > 21 then console.log 'you busted you lose'
+    if !@isDealer && this.scores()[0] > 21 then alert 'you busted you lose'
 
   # added a stand function
   stand: ->

@@ -20,7 +20,7 @@
     Hand.prototype.hit = function() {
       this.add(this.deck.pop()).last();
       if (!this.isDealer && this.scores()[0] > 21) {
-        return console.log('you busted you lose');
+        return alert('you busted you lose');
       }
     };
 

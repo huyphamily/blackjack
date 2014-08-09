@@ -52,13 +52,13 @@
         dealerScore = dealer.scores()[0];
       }
       if (dealerScore > 21) {
-        return console.log('dealer bust you win');
+        return alert('dealer bust you win');
       } else if (dealerScore > playerScore) {
-        return console.log('dealer wins');
+        return alert('dealer wins');
       } else if (playerScore > dealerScore) {
-        return console.log('player wins');
+        return alert('player wins');
       } else {
-        return console.log('draw');
+        return alert('draw');
       }
     };
 
