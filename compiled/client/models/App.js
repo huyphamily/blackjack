@@ -23,12 +23,28 @@
     App.prototype.dealerPlay = function() {
       var dealer;
       dealer = this.get('dealerHand');
+      if (!dealer.at(0).get('revealed')) {
+        dealer.at(0).flip();
+      }
       if ((dealer.scores()[1] != null) && dealer.scores()[1] < 17) {
         dealer.hit();
         return this.dealerPlay();
       } else if (dealer.scores()[0] < 17) {
         dealer.hit();
         return this.dealerPlay();
+      } else {
+        return this.gameEnd();
+      }
+    };
+
+    App.prototype.gameEnd = function() {
+      var dealer, player;
+      dealer = this.get('dealerHand');
+      player = this.get('playerHand');
+      if ((dealer.scores(1) || dealer.scores()[0]) > (player.scores()[1] || player.scores()[0])) {
+        return console.log('dealer wins');
+      } else {
+        return console.log('player wins');
       }
     };
 
